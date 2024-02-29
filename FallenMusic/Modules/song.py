@@ -26,20 +26,19 @@ import requests
 import yt_dlp
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from FallenMusic.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtube_search import YoutubeSearch
 
 from FallenMusic import BOT_MENTION, BOT_USERNAME, LOGGER, app
 
 
-@app.on_message(command(["يوت", "تحميل", "تنزيل", "بحث"]))
+@app.on_message(filters.command(["تنزيل", "اغنيه", "تحميل", "اغنية"]))
 async def song(_, message: Message):
     try:
         await message.delete()
     except:
         pass
-    m = await message.reply_text(" يتم البحث الان .")
+    m = await message.reply_text("🔎")
 
     query = "".join(" " + str(i) for i in message.command[1:])
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
@@ -56,16 +55,16 @@ async def song(_, message: Message):
     except Exception as ex:
         LOGGER.error(ex)
         return await m.edit_text(
-            f" فشل .\n\n**السبب :** `{ex}`"
+            f"عايز تنزل ايه"
         )
 
-    await m.edit_text(" تم الرفع انتظر قليلاً .")
+    await m.edit_text("جاري البحث انتظر قليلاً .🚦")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"** الأسم :** [{title[:23]}]({link})\n** الوقت :** `{duration}`\n** بواسطة  :** {BOT_MENTION}"
+        rep = f"☁️ **العنوان :** [{title[:23]}]({link})\n⏱️ **الوقت :** `{duration}`\n🥀 **تم التحميل بواسطة :** {BOT_MENTION}"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(dur_arr[i]) * secmul
@@ -92,7 +91,7 @@ async def song(_, message: Message):
             )
             if message.chat.type != ChatType.PRIVATE:
                 await message.reply_text(
-                    "تم ارسال الملف الصوتي لك في الخاص"
+                    "تم ارسال الاغنية في الخاص ."
                 )
         except:
             start_butt = InlineKeyboardMarkup(
@@ -111,7 +110,7 @@ async def song(_, message: Message):
             )
         await m.delete()
     except:
-        return await m.edit_text("فشل التحميل علي سيرفر التليجرام .")
+        return await m.edit_text("فشل التحميل علي سيرفر تليجرام .")
 
     try:
         os.remove(audio_file)
