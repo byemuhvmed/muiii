@@ -179,7 +179,7 @@ async def play(_, message: Message):
         file_path = audio_dl(url)
     else:
         if len(message.command) < 2:
-            return await fallen.edit_text("عايز تشغل ...؟")
+            return await fallen.edit_text("عايز تشغل اية")
         await fallen.edit_text(" جاري التشغيل انتظر قليلاً ..⚡")
         query = message.text.split(None, 1)[1]
         try:
