@@ -1,0 +1,62 @@
+{
+    "name": "hamody music",
+    "description": " السورس اخر اصدار .",
+    "logo": "https://telegra.ph/file/6fe7de7485c993122bc4a.jpg",
+    "keywords": [
+    "python3",
+    "telegram",
+    "Fallen",
+    "MusicBot",
+    "telegram-bot",
+    "pyrogram"
+    ],
+    "env": {
+      "API_ID": {
+        "description": "اكتب ايبي ايدي .",
+        "value": "",
+        "required": true
+      },
+      "API_HASH": {
+        "description": "اكتب ايبي هاش .",
+        "value": "",
+        "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "اكتب توكن البوت",
+        "value": "",
+        "required": true
+      },
+      "OWNER_ID": {
+        "description": "- اكتب ايدي المالك .",
+        "value": "6463481188",
+        "required": true
+      },
+      "SESSION": {
+        "description": "كود بايروجرام .",
+        "value": "",
+        "required": true
+      },
+      "SUDO_USERS": {
+        "description": "ايدي المطور .",
+        "value": "",
+        "required": true
+      },
+      "SUPPORT_CHAT": {
+        "description": "جروب الدعم .",
+        "value": "https://t.me/Mad_riD_6",
+        "required": false
+      }
+    },
+    "buildpacks": [
+          {
+              "url": "heroku/python"
+          },
+          {
+              "url": "heroku/nodejs"
+          },
+          {
+              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+          }
+      ],
+      "stack": "container"
+  }
