@@ -24,7 +24,7 @@ Devloper Username : @MH_BP ،
             [
                 [
                     InlineKeyboardButton(
-                        " مطور السورس .", url=f"https://t.me/MH_BP"),
+                        "hamody .", url=f"https://t.me/MH_BP"),
                 ],
                 [
                    InlineKeyboardButton(
