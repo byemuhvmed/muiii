@@ -24,11 +24,11 @@ Devloper Username : @MH_BP ،
             [
                 [
                     InlineKeyboardButton(
-                        "hamody .", url=f"https://t.me/MH_BP"),
+                        " مطور السورس .", url=f"https://t.me/MH_BP"),
                 ],
                 [
                    InlineKeyboardButton(
-                        " قناة المطور ", url=f"https://t.me/M_C_II"),
+                        "𓏺 ََِ𝗠𝗔𝗗𝗥𝗜𝗗 ↺", url=f"https://t.me/M_C_II"),
                 ],       
             ]
         ),
